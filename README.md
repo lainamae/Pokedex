@@ -9,7 +9,7 @@ data from an external API and enables the viewing of data points in detail.
 
 ## Project Dependencies
 
-This Project will use
+This Project uses
 
 - HTML
 - CSS
