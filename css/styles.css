@@ -1,0 +1,12 @@
+body {
+  background-color: #f7dbe4;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-family: sans-serif;
+}
+div {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 25px;
+  background-color: lightblue;
+}
