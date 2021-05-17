@@ -16,20 +16,7 @@ var pokemonList = [
   },
 ];
 
-for (let i = 0; i < pokemonList.length; i++) {
-  if (pokemonList[i].height > 1) {
-    document.write(
-      `<div>
-    <h2>${pokemonList[i].name}</h2>
-    <p>Types: ${pokemonList[i].types} <br> Height: ${pokemonList[i].height} Big guy!</p>
-    </div>`
-    );
-  } else {
-    document.write(
-      `<div>
-      <h2>${pokemonList[i].name}</h2>
-      <p>Types: ${pokemonList[i].types} <br> Height: ${pokemonList[i].height}</p>
-      </div>`
-    );
-  }
-}
+pokemonList.forEach(function (pokemon) {
+  document.write(`<div><h2>${pokemon.name}</h2><p>${pokemon.types}</p><p>${pokemon.height}</p>
+  </div>`);
+});
