@@ -1,12 +1,40 @@
 body {
   background-color: #f7dbe4;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  font-family: sans-serif;
+  font-family: 'Lato', sans-serif;
 }
-div {
-  margin: 20px;
-  padding: 20px;
-  border-radius: 25px;
-  background-color: lightblue;
+header {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #c53664;
+  color: #fff;
+  display: flex;
+  height: 75px;
+  padding: 10px;
+}
+.pokemon-menu {
+  display: block;
+  position: absolute;
+  width: 30%;
+  min-width: 150px;
+  height: 100%;
+  background-color: #ffffff;
+}
+.pokemon-menu ul {
+  list-style: none;
+  position: relative;
+  margin: 0px 10px;
+  padding: 0;
+}
+.button-class {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  color: #000;
+  border: #c53664 solid 1px;
+  background-color: #f7dbe4;
+  font-weight: bold;
+}
+.button-class:hover , .button-class:focus, .button-class:active{
+  transition: .25s;
+  background-color: #f7c7d6;
+  padding: 13px;
 }
