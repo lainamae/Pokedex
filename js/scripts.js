@@ -2,6 +2,8 @@ let pokemonRepository = (function () {
   let pokemonList = [];
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
+  // push pokemon
+
   function add(pokemon) {
     if (typeof pokemon === "object" && "name" in pokemon) {
       pokemonList.push(pokemon);
@@ -10,9 +12,13 @@ let pokemonRepository = (function () {
     }
   }
 
+  // returns list of pokemon from API generated repo + pushed pokemon
+
   function getAll() {
     return pokemonList;
   }
+
+  // makes buttons for all pokemon, button class is ".button-class"
 
   function addListItem(pokemon) {
     let pokemonList = document.querySelector(".pokemon-list");
@@ -22,10 +28,12 @@ let pokemonRepository = (function () {
     button.classList.add("button-class");
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
-    button.addEventListener("click", function (event) {
+    button.addEventListener("click", function () {
       showDetails(pokemon);
     });
   }
+
+  // fetch pokemon list from api
 
   function loadList() {
     return fetch(apiUrl)
@@ -47,6 +55,8 @@ let pokemonRepository = (function () {
       });
   }
 
+  // Fetch pokemon details from API
+
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url)
@@ -63,11 +73,15 @@ let pokemonRepository = (function () {
       });
   }
 
+  // Console log pokemon
+
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
       console.log(pokemon);
     });
   }
+
+  // Return all functions as global variables
 
   return {
     add: add,
@@ -77,7 +91,11 @@ let pokemonRepository = (function () {
     loadDetails: loadDetails,
     showDetails: showDetails,
   };
-})(); // end of pokemonRepository IIFE
+})();
+
+// end of pokemonRepository IIFE
+
+// Loads API generated list, then gets complete list with any pushed pokemon & for each pokemon creates a list item.
 
 pokemonRepository.loadList().then(function () {
   pokemonRepository.getAll().forEach(function (pokemon) {
