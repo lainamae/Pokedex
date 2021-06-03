@@ -73,13 +73,66 @@ let pokemonRepository = (function () {
       });
   }
 
-  // Console log pokemon
+  // Display pokemon details modal
 
-  function showDetails(pokemon) {
-    loadDetails(pokemon).then(function () {
-      console.log(pokemon);
+  function showDetails(item) {
+    loadDetails(item).then(function () {
+      showModal(item);
     });
   }
+
+  // Show the details modal
+  let modalContainer = document.querySelector("#modal-container");
+  function showModal(item) {
+    modalContainer.innerHTML = "";
+    let modal = document.createElement("div");
+    modal.classList.add("modal");
+    let pokemonInfo = document.createElement("div");
+    pokemonInfo.classList.add("pokemon-info");
+    let closeButtonElement = document.createElement("button");
+    closeButtonElement.classList.add("modal-close");
+    closeButtonElement.innerHTML = "Close";
+    closeButtonElement.addEventListener("click", hideModal);
+
+    let nameElement = document.createElement("h1");
+    let heightElement = document.createElement("p");
+    let imageElement = document.createElement("img");
+    nameElement.innerText = item.name;
+    heightElement.innerHTML = `<b>Height: </b>${item.height}0 cm`;
+    imageElement.src = item.imageUrl;
+    imageElement.alt = `Sprite of ${item.name}`;
+
+    modal.appendChild(pokemonInfo);
+    pokemonInfo.appendChild(imageElement);
+    pokemonInfo.appendChild(nameElement);
+    pokemonInfo.appendChild(heightElement);
+    modal.appendChild(closeButtonElement);
+    modalContainer.appendChild(modal);
+
+    modalContainer.classList.add("is-visible");
+  }
+
+  // hide the modal
+
+  function hideModal() {
+    modalContainer.classList.remove("is-visible");
+  }
+
+  // additonal event listeners to hide modal
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
+      hideModal();
+    }
+  });
+
+  modalContainer.addEventListener("click", (e) => {
+    let target = e.target;
+    if (target === modalContainer) {
+      hideModal();
+    }
+    ``;
+  });
 
   // Return all functions as global variables
 
