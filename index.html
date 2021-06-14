@@ -22,11 +22,23 @@
 
   <body>
     <header>
-      <h1>Pokédex</h1>
+      <!-- Image and text -->
+      <nav class="navbar navbar-light bg-light" role="navigation">
+        <a class="navbar-brand" href="#">
+          <img
+            src="img/icon.png"
+            width="30"
+            height="30"
+            class="d-inline-block align-top"
+            alt=""
+          />
+          Pokédex
+        </a>
+      </nav>
     </header>
-    <main>
-      <div class="pokemon-menu">
-        <ul class="pokemon-list"></ul>
+    <main class="container">
+      <div class="pokemon-menu row">
+        <ul class="pokemon-list list-unstyled list-group"></ul>
       </div>
       <div id="modal-container"></div>
     </main>
