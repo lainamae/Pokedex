@@ -1,14 +1,14 @@
 let pokemonRepository = (function () {
   let pokemonList = [];
-  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   // push pokemon
 
   function add(pokemon) {
-    if (typeof pokemon === "object" && "name" in pokemon) {
+    if (typeof pokemon === 'object' && 'name' in pokemon) {
       pokemonList.push(pokemon);
     } else {
-      console.log("Please use objects to input new pokemon");
+      console.log('Please use objects to input new pokemon');
     }
   }
 
@@ -21,19 +21,22 @@ let pokemonRepository = (function () {
   // makes buttons for all pokemon, button class is ".button-class"
 
   function addListItem(pokemon) {
-    let pokemonList = document.querySelector(".pokemon-list");
-    let listPokemon = document.createElement("li");
-    let button = document.createElement("button");
+    let pokemonList = document.querySelector('.pokemon-list');
+    let listPokemon = document.createElement('li');
+    let button = document.createElement('button');
     button.innerText = pokemon.name;
-    button.classList.add("button-class");
-    button.classList.add("btn");
+    button.classList.add('button-class');
+    button.classList.add('btn');
+    // button.classList.add("btn-primary");
 
-    listPokemon.classList.add("list-group-item");
+    listPokemon.classList.add('list-group-item');
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
-    button.addEventListener("click", function () {
-      showDetails(pokemon);
-    });
+    button.setAttribute('data-toggle', 'modal');
+    button.setAttribute('data-target', '#pokemonModal');
+    // button.addEventListener("click", function () {
+    //   showDetails(pokemon);
+    // });
   }
 
   // fetch pokemon list from api
@@ -84,58 +87,20 @@ let pokemonRepository = (function () {
     });
   }
 
-  // Show the details modal
-  let modalContainer = document.querySelector("#modal-container");
   function showModal(item) {
-    modalContainer.innerHTML = "";
-    let modal = document.createElement("div");
-    modal.classList.add("modal");
-    let pokemonInfo = document.createElement("div");
-    pokemonInfo.classList.add("pokemon-info");
-    let closeButtonElement = document.createElement("button");
-    closeButtonElement.classList.add("modal-close");
-    closeButtonElement.innerHTML = "Close";
-    closeButtonElement.addEventListener("click", hideModal);
+    let modalBody = $('.modal-body');
+    let modalTitle = $('.modal-title');
+    let modalHeader = $('.modal-header');
 
-    let nameElement = document.createElement("h1");
-    let heightElement = document.createElement("p");
-    let imageElement = document.createElement("img");
-    nameElement.innerText = item.name;
-    heightElement.innerHTML = `<b>Height: </b>${item.height}0 cm`;
-    imageElement.src = item.imageUrl;
-    imageElement.alt = `Sprite of ${item.name}`;
+    modalTitle.empty();
+    modalBody.empty();
 
-    modal.appendChild(pokemonInfo);
-    pokemonInfo.appendChild(imageElement);
-    pokemonInfo.appendChild(nameElement);
-    pokemonInfo.appendChild(heightElement);
-    modal.appendChild(closeButtonElement);
-    modalContainer.appendChild(modal);
-
-    modalContainer.classList.add("is-visible");
+    let nameElement = $('<h1>' + item.name + '</h1>');
+    let heightElement = $('<p>' + 'height : ' + item.height + '</p>');
+    modalTitle.append(nameElement);
+    modalBody.append(heightElement);
+    $('#pokemonModal').modal('toggle');
   }
-
-  // hide the modal
-
-  function hideModal() {
-    modalContainer.classList.remove("is-visible");
-  }
-
-  // additonal event listeners to hide modal
-
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
-      hideModal();
-    }
-  });
-
-  modalContainer.addEventListener("click", (e) => {
-    let target = e.target;
-    if (target === modalContainer) {
-      hideModal();
-    }
-    ``;
-  });
 
   // Return all functions as global variables
 
@@ -146,6 +111,7 @@ let pokemonRepository = (function () {
     loadList: loadList,
     loadDetails: loadDetails,
     showDetails: showDetails,
+    showModal: showModal,
   };
 })();
 
