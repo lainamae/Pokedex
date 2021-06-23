@@ -40,3 +40,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.pokemon-name {
+  text-transform: capitalize;
+}
