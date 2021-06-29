@@ -1,6 +1,6 @@
 let pokemonRepository = (function () {
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=900';
 
   // push pokemon
 
@@ -25,6 +25,7 @@ let pokemonRepository = (function () {
     let listPokemon = document.createElement('li');
     let button = document.createElement('button');
     button.innerText = pokemon.name;
+    button.classList.add('col');
     button.classList.add('button-class');
     button.classList.add('btn');
     // button.classList.add("btn-primary");
@@ -97,17 +98,25 @@ let pokemonRepository = (function () {
     modalTitle.empty();
     modalBody.empty();
 
-    let nameElement = $('<h1 class="pokemon-name">' + item.name + '</h1>');
+    let nameElement = $('<h4 class="pokemon-name">' + item.name + '</h4>');
     let imageFront = $('<img src =' + item.imageUrlFront + '></img>');
     let imageBack = $('<img src =' + item.imageUrlBack + '></img>');
-    let heightElement = $('<p>' + 'Height : ' + item.height + '</p>');
-    let weightElement = $('<p>' + 'Weight : ' + item.weight + '</p>');
+    let imageElement = $('<div class="d-flex justify-content-center align-items-center images-element"></div>');
+    let heightElement = $('<p>' + '<b>Height :</b> ' + item.height + '</p>');
+    let weightElement = $('<p>' + '<b>Weight :</b> ' + item.weight + '</p>');
+    let typesElement = $('<div class = "d-flex justify-content-center"><p><b></b></p></div>');
+    item.types.forEach(function (item) {
+      let typeItem = $('<p class="types-element ' + item.type.name + '">' + item.type.name + '</p>');
+      typesElement.append(typeItem);
+    });
 
     modalBody.append(nameElement);
-    modalBody.append(imageFront);
-    modalBody.append(imageBack);
+    imageElement.append(imageFront);
+    imageElement.append(imageBack);
+    modalBody.append(imageElement);
     modalBody.append(heightElement);
     modalBody.append(weightElement);
+    modalBody.append(typesElement);
 
     $('#pokemonModal').modal('toggle');
   }
