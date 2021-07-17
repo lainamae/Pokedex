@@ -1,16 +1,15 @@
 body {
   background-color: #f7dbe4;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 header {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   background-color: #c53664;
   color: #fff;
   display: flex;
   height: 8vh;
   padding: 10px;
   align-items: center;
-  j
 }
 .pokemon-menu {
   display: block;
