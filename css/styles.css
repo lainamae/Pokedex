@@ -88,6 +88,14 @@ body {
   font-weight: bold;
   color: white;
 }
+.abilities-element {
+  text-transform: capitalize;
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: #a5a5a5;
+}
 
 .pokemon-name {
   text-transform: capitalize;

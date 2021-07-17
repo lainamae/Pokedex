@@ -77,6 +77,7 @@ let pokemonRepository = (function () {
         item.height = details.height;
         item.weight = details.weight;
         item.types = details.types;
+        item.abilities = details.abilities;
       })
       .catch(function (e) {
         console.error(e);
@@ -104,10 +105,15 @@ let pokemonRepository = (function () {
     let imageElement = $('<div class="d-flex justify-content-center align-items-center images-element"></div>');
     let heightElement = $('<p>' + '<b>Height :</b> ' + item.height + '</p>');
     let weightElement = $('<p>' + '<b>Weight :</b> ' + item.weight + '</p>');
-    let typesElement = $('<div class = "d-flex justify-content-center"><p><b></b></p></div>');
+    let typesElement = $('<div class = "d-flex align-items-center"><b>Types:</b></div>');
     item.types.forEach(function (item) {
       let typeItem = $('<p class="types-element ' + item.type.name + '">' + item.type.name + '</p>');
       typesElement.append(typeItem);
+    });
+    let abilitiesElement = $('<div class = "d-flex align-items-center"><b>Abilities:</b></div>');
+    item.abilities.forEach(function (item) {
+      let abilitiesItem = $('<p class="abilities-element">' + item.ability.name + '</p>');
+      abilitiesElement.append(abilitiesItem);
     });
 
     modalBody.append(nameElement);
@@ -117,6 +123,7 @@ let pokemonRepository = (function () {
     modalBody.append(heightElement);
     modalBody.append(weightElement);
     modalBody.append(typesElement);
+    modalBody.append(abilitiesElement);
 
     $('#pokemonModal').modal('toggle');
   }
