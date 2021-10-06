@@ -7,6 +7,10 @@
         "eslint:recommended"
     ],
     "rules": {
-        "quotes": ["error", "single"]
-    }
+        "quotes": [
+            "error",
+            "single"
+        ]
+    },
+    "jquery": true
 }
