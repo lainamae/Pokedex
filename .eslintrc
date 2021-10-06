@@ -8,5 +8,6 @@
     ],
     "rules": {
         "quotes": ["error", "single"]
-    }
+    },
+    "jquery":true
 }
