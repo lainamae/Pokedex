@@ -1,159 +1,160 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 body {
-  font-family: 'Ubuntu Mono', monospace;
-  height: 100vh;
+	font-family: 'Ubuntu Mono', monospace;
+	height: 100vh;
 }
 .container-fluid {
-  padding-left: 0;
-  padding-right: 0;
+	padding-left: 0;
+	padding-right: 0;
 }
 .navbar {
-  padding: 0 15px;
-  height: 8vh;
+	padding: 0 15px;
+	height: 8vh;
 }
 .navbar a {
-  color: #e33a6f;
+	color: #e33a6f;
 }
 .logo:hover {
-  opacity: 0.8;
+	opacity: 0.8;
 }
 .list-group-item {
-  background-color: rgba(0, 0, 0, 0);
+	background-color: rgba(0, 0, 0, 0);
 }
 .pokemon-list {
-  height: 94vh;
+	height: 94vh;
 }
 .pokemon-menu {
-  overflow: scroll;
+	overflow: scroll;
+	margin-top: 10vh;
 }
 .pokemon-info {
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	height: 90%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 .modal-header {
-  height: 20px;
-  background-color: #e33a6f;
+	height: 20px;
+	background-color: #e33a6f;
 }
 
 .close {
-  color: #ffffff;
-  opacity: 1;
-  text-shadow: none;
+	color: #ffffff;
+	opacity: 1;
+	text-shadow: none;
 }
 .close:focus,
 .close:hover {
-  color: #b52c58;
+	color: #b52c58;
 }
 .button-class {
-  width: 140px;
-  height: 50px;
-  text-transform: capitalize;
-  margin: 4px;
-  border: #e33a6f solid 3px;
-  background-color: #ffe3ec;
-  border-radius: 5px;
-  font-size: 22px;
+	width: 140px;
+	height: 50px;
+	text-transform: capitalize;
+	margin: 4px;
+	border: #e33a6f solid 3px;
+	background-color: #ffe3ec;
+	border-radius: 5px;
+	font-size: 22px;
 }
 .button-class:hover,
 .button-class:focus {
-  transition: all 0.125s;
-  font-weight: bold;
-  width: 140px;
-  height: 54px;
-  margin: 0px;
-  border: #e33a6f solid 5px;
-  background-color: #ffffff;
+	transition: all 0.125s;
+	font-weight: bold;
+	width: 140px;
+	height: 54px;
+	margin: 0px;
+	border: #e33a6f solid 5px;
+	background-color: #ffffff;
 }
 
 .list-group-item {
-  border: none;
+	border: none;
 }
 .images-element {
-  height: 200px;
-  margin: 10px 0;
+	height: 200px;
+	margin: 10px 0;
 }
 .images-element img {
-  width: 150px;
-  height: 150px;
+	width: 150px;
+	height: 150px;
 }
 .types-element {
-  text-transform: capitalize;
-  margin: 0 5px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-weight: bold;
-  color: white;
+	text-transform: capitalize;
+	margin: 0 5px;
+	padding: 5px 10px;
+	border-radius: 5px;
+	font-weight: bold;
+	color: white;
 }
 .abilities-element {
-  text-transform: capitalize;
-  margin: 5px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-weight: bold;
-  background-color: #a5a5a5;
+	text-transform: capitalize;
+	margin: 5px;
+	padding: 5px 10px;
+	border-radius: 5px;
+	font-weight: bold;
+	background-color: #a5a5a5;
 }
 
 .pokemon-name {
-  text-transform: capitalize;
-  text-align: center;
-  font-weight: bold;
-  font-size: 36px;
+	text-transform: capitalize;
+	text-align: center;
+	font-weight: bold;
+	font-size: 36px;
 }
 .normal {
-  background-color: peru;
+	background-color: peru;
 }
 .fire {
-  background-color: #c15300;
+	background-color: #c15300;
 }
 .water {
-  background-color: #017ede;
+	background-color: #017ede;
 }
 .grass {
-  background-color: #1d9d2c;
+	background-color: #1d9d2c;
 }
 .electric {
-  background-color: #d2f039;
+	background-color: #d2f039;
 }
 .ice {
-  background-color: #68b8c6;
+	background-color: #68b8c6;
 }
 .fighting {
-  background-color: #762424;
+	background-color: #762424;
 }
 .poison {
-  background-color: #8a0f78;
+	background-color: #8a0f78;
 }
 .ground {
-  background-color: #674929;
+	background-color: #674929;
 }
 .flying {
-  background-color: #6279d5;
+	background-color: #6279d5;
 }
 .psychic {
-  background-color: #c252a8;
+	background-color: #c252a8;
 }
 .bug {
-  background-color: #608828;
+	background-color: #608828;
 }
 .rock {
-  background-color: #29241d;
+	background-color: #29241d;
 }
 .ghost {
-  background-color: #a28ca9;
+	background-color: #a28ca9;
 }
 .dark {
-  background-color: #1c071a;
+	background-color: #1c071a;
 }
 .dragon {
-  background-color: #8854b5;
+	background-color: #8854b5;
 }
 .steel {
-  background-color: #5b5b5b;
+	background-color: #5b5b5b;
 }
 .fairy {
-  background-color: #ffb9da;
+	background-color: #ffb9da;
 }
